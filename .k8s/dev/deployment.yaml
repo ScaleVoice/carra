@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ticking-web
+spec:
+  selector:
+    matchLabels:
+      component: ticking-web
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        component: ticking-web
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - name: ticking-web
+          imagePullPolicy: Always
+          image: registry.gitlab.driverama.com/data-driven-buying/frontend/ticking-app/ticking-web/master:latest
+          resources:
+            limits:
+              memory: '1000Mi'
+            requests:
+              memory: '500Mi'
+              cpu: '350m'
+          envFrom:
+            - secretRef:
+                name: env-variables
+          ports:
+            - containerPort: 3000
+          readinessProbe:
+            httpGet:
+              port: 3000
+              path: /
+            initialDelaySeconds: 10
+            timeoutSeconds: 5
+            periodSeconds: 15
+            failureThreshold: 5

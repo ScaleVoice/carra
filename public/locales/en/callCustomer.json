@@ -1,0 +1,23 @@
+{
+  "table_title": "Filtered ads",
+  "table_column_id": "ID",
+  "table_column_car_grade": "Grade",
+  "table_column_country": "Country",
+  "table_column_branch": "Branch",
+  "table_column_make": "Make",
+  "table_column_model": "Model",
+  "table_column_year_of_make": "Year",
+  "table_column_mileage": "Mileage",
+  "table_column_price": "Price",
+  "table_column_fuel_type": "Fuel",
+  "table_column_segment": "Segment",
+  "table_column_body": "Body",
+  "table_column_seller_name": "Seller name",
+  "table_column_private": "Private",
+  "table_column_rank": "Rank",
+  "table_column_profit": "Profit",
+  "table_column_server_id": "Server ID",
+  "table_column_seller": "Seller",
+  "table_column_transmission": "Automat",
+  "table_column_downloaded_at": "Downloaded at"
+}

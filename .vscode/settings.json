@@ -1,0 +1,13 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    // "source.organizeImports": true
+  },
+  "yaml.customTags": ["!reference"],
+  "yaml.validate": false,
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
