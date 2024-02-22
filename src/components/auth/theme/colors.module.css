@@ -1,0 +1,20 @@
+@value essentials-05: var(--essentials-05, #F5F5F5);
+@value essentials-0: var(--Essentials-0, #fff);
+@value essentials-1: var(--Essentials-1, #e7e7e7);
+@value essentials-3: var(--Essentials-3, #a0a0a0);
+@value essentials-4: var(--Essentials-4, #717171);
+@value essentials-6: var(--Essentials-6, #121212);
+
+@value primary-5: var(--Primary-5, #6F42C1);
+@value primary-05: var(--primary-05, #F1ECF9);
+
+@value base-white: var(--Base-White, #fff);
+
+@value success-05: var(--success-05, #ccf3dc);
+@value success-5: var(--Success-5, #11A44C);
+@value caution-05: var(--caution-05, #FDF6E9);
+@value caution-5: var(--Caution-5, #EAA51F);
+@value danger-05: var(--danger-05, #FDE9EC);
+@value danger-5: var(--Danger-5, #EA1F3D);
+
+@value gray-50: var(--Gray-50, #F9FAFB);

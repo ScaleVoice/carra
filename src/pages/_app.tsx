@@ -1,31 +1,30 @@
 import { css, Global } from '@emotion/react'
 import { global } from 'core/styles/global'
 import { size } from 'core/styles/spacing'
-import { SessionProvider } from 'next-auth/react'
 import { appWithTranslation } from 'next-i18next'
+import { ClerkProvider } from '@clerk/nextjs'
 
 import { color, font, shadow, variables } from 'core/styles/variables'
 import 'react-toastify/dist/ReactToastify.css'
+import '../index.css'
 
 import {
   Hydrate,
   QueryClient,
   QueryClientProvider
 } from '@tanstack/react-query'
-import { Auth } from 'components/auth/Auth'
-import { AuthAppProps } from 'components/auth/utils'
 import { ToastWrapper } from 'components/toast/Toast'
-import { useState } from 'react'
 import { FilterProvider } from 'sections/filtering/reducer/FiltersContext'
+import { AppProps } from 'next/app'
+
+const queryClient = new QueryClient()
 
 function App({
   Component,
   pageProps: { session: clientSession, ...pageProps }
-}: AuthAppProps) {
-  const [queryClient] = useState(() => new QueryClient())
-
+}: AppProps) {
   return (
-    <SessionProvider session={clientSession}>
+    <ClerkProvider {...pageProps}>
       <QueryClientProvider client={queryClient}>
         <Global
           styles={css`
@@ -102,20 +101,13 @@ function App({
         />
         <Hydrate state={pageProps.dehydratedState}>
           <FilterProvider>
-            {Component.requiresAuth ? (
-              <Auth>
-                <Component {...pageProps} />
-              </Auth>
-            ) : (
-              <Component {...pageProps} />
-            )}
-
+            <Component {...pageProps} />
             <ToastWrapper />
           </FilterProvider>
         </Hydrate>
         {/* <ReactQueryDevtools initialIsOpen={false} /> */}
       </QueryClientProvider>
-    </SessionProvider>
+    </ClerkProvider>
   )
 }
 

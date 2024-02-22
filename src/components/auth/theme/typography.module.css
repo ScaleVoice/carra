@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+.h5 {
+  font-family: 'Inter Tight';
+  font-size: 24px;
+  font-style: normal;
+  line-height: 120%;
+  letter-spacing: 0.48px;
+}
+
+.numbersMonospace {
+  font-family: 'Roboto Mono';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+  letter-spacing: -0.56px;
+}
+
+.textXS {
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  line-height: 18px; /* 150% */
+}
+
+.textSM {
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 20px; /* 142.857% */
+}
+
+.bodyS {
+  font-family: 'Inter Tight';
+  font-size: 12px;
+  font-style: normal;
+  line-height: 150%; /* 18px */
+  letter-spacing: 0.24px;
+}
+
+.bodyM {
+  font-family: 'Inter Tight';
+  font-size: 14px;
+  font-style: normal;
+  line-height: 150%; /* 21px */
+  letter-spacing: 0.28px;
+}
+
+.bodyXL {
+  font-family: 'Inter Tight';
+  font-size: 18px;
+  font-style: normal;
+  line-height: 140%; /* 25.2px */
+  letter-spacing: 0.36px;
+}
+
+.semibold {
+  font-weight: 400;
+}
+
+.medium {
+  font-weight: 500;
+}
+
+.bold {
+  font-weight: 700;
+}

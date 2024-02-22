@@ -1,0 +1,49 @@
+.container {
+  background: white;
+  overflow: hidden;
+}
+
+.children {
+  z-index: 2;
+  height: 100%;
+}
+
+.bubbleLeft {
+  position: absolute;
+  left: -579px;
+  flex-shrink: 0;
+  width: 1158px;
+  height: 1158px;
+  border-radius: 1158px;
+  opacity: 0.2;
+  background: #bf00fe;
+  filter: blur(167px);
+  z-index: 0;
+}
+
+.bubbleCenter {
+  position: absolute;
+  top: calc(50% - 206.5px);
+  flex-shrink: 0;
+  width: 413px;
+  height: 413px;
+  border-radius: 413px;
+  opacity: 0.5;
+  border: solid 1px black;
+  background: #9d8df1;
+  filter: blur(182px);
+  z-index: 1;
+}
+
+.bubbleRight {
+  position: absolute;
+  right: -605px;
+  flex-shrink: 0;
+  width: 1210px;
+  height: 1210px;
+  border-radius: 1210px;
+  opacity: 0.2;
+  background: #fca17d;
+  filter: blur(162px);
+  z-index: 0;
+}

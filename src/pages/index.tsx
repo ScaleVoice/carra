@@ -64,5 +64,3 @@ export const getStaticProps: GetStaticProps = async ctx => {
     }
   }
 }
-
-Calls.requiresAuth = true

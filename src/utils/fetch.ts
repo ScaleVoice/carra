@@ -1,9 +1,9 @@
 import { HTTPMethod } from 'constants/httpMethod'
 import { LINKS } from 'constants/links'
-import { getSession } from 'next-auth/react'
 import Router from 'next/router'
 import { SearchParams, addSearchParams } from './searchParams'
 import { Maybe } from './types'
+import { useAuth } from '@clerk/nextjs'
 
 export type FetchArgs = Omit<RequestInit, 'body' | 'method'> & {
   body?: Record<string, unknown> | FormData | string
@@ -16,26 +16,15 @@ export async function apiFetch(path: string, args?: FetchArgs) {
   const baseUrl = process.env.NEXT_PUBLIC_API_URL
   const body = args?.body
   const method = args?.method ?? HTTPMethod.GET
-
   // full url from which we request
   const url = addSearchParams(`${baseUrl}${path}`, args?.searchParams)
-
-  console.log('apiFetch', process.env)
-
-  const session = await getSession()
-
-  if (!session?.user?.access) {
-    Router.push(LINKS.login)
-
-    throw new Error('No access token')
-  }
 
   const options: RequestInit = {
     ...args,
     body: undefined,
     headers: {
       Accept: 'application/com.driverama-v1+json',
-      ...getAuthorizationHeader(session?.user.access),
+      ...getAuthorizationHeader('TODO:REPLACE_TOKEN'),
       ...(global.FormData != null && body instanceof FormData
         ? undefined
         : { 'Content-Type': 'application/json' }),
@@ -68,8 +57,4 @@ export async function apiFetch(path: string, args?: FetchArgs) {
 
 export function getAuthorizationHeader(token: Maybe<string>) {
   return token ? { Authorization: `Bearer ${token}` } : undefined
-}
-
-export function createAcceptHeaderWithVersion(version = 1) {
-  return `application/com.driverama-v${version}+json`
 }

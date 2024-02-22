@@ -20,6 +20,8 @@ interface Props {
 const usePrivateFilterOptions = (): PrivateFilterOption[] => {
   const { t } = useTranslation()
 
+  console.log('t', t, t('yes'))
+
   return useMemo(
     () => [
       {
