@@ -5,9 +5,7 @@
   },
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    // "source.organizeImports": true
+    "source.organizeImports": "explicit"
   },
-  "yaml.customTags": ["!reference"],
-  "yaml.validate": false,
   "typescript.tsdk": "node_modules/typescript/lib"
 }

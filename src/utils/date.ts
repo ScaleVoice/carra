@@ -1,6 +1,9 @@
-export function parseUTCDate(input: string): Date {
-  const [date, _time] = input.split('T')
-  const time =
-    _time === null ? '00:00:00Z' : !_time.match(/[-+Z]+/) ? `${_time}Z` : _time
-  return new Date(`${date}T${time}`)
+import { DateTime } from 'luxon'
+
+export const formatDate = (date: Date, format = 'dd LLL yyyy') => {
+  return DateTime.fromJSDate(date).toFormat(format, { locale: 'cs-CZ' })
+}
+
+export const formatDateRange = (date1: Date, date2: Date, format = 'dd LLL yyyy') => {
+  return `${formatDate(date1, format)} - ${formatDate(date2, format)}`
 }

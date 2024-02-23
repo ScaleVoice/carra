@@ -1,24 +1,31 @@
-FROM node:16-slim
+FROM node:lts-alpine AS builder
+RUN apk add --no-cache git
 
-# NOTE: we are using jemalloc as memory allocator for node to prevent memory leaks from sharp
-# more info: https://sharp.pixelplumbing.com/install#linux-memory-allocator
-# more info: https://storck.io/posts/psa-switch-ruby-docker-to-jemalloc-now/
-RUN apt-get update &&\
-  apt-get install -y --no-install-recommends libjemalloc2 &&\
-  rm -rf /var/lib/apt/lists/*
-
-ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2
-
-# for selfhosting, we need sharp
-# more info here: https://nextjs.org/docs/messages/install-sharp
-RUN npm install -g sharp
-ENV NEXT_SHARP_PATH=/usr/local/lib/node_modules/sharp
-
+LABEL Version="1.0"
+LABEL Name="carra"
 
 WORKDIR /app
 
-COPY .next .
-COPY .next/static standalone/ticking-app/.next/static
-COPY public standalone/ticking-app/public
+COPY package.json yarn.lock ./
 
-CMD ["node", "standalone/ticking-app/server.js"]
+RUN yarn install
+
+COPY . .
+
+# ENV_FILE is '.env.development' | '.env.staging' | '.env.production'
+ARG ENV_FILE
+RUN mv $ENV_FILE .env.production
+RUN yarn build
+
+FROM node:lts-alpine
+
+WORKDIR /app
+
+COPY --from=builder /app/.env.production /app/.env.production
+COPY --from=builder /app/package.json /app/yarn.lock ./
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/node_modules ./node_modules
+
+EXPOSE 3000
+CMD yarn start

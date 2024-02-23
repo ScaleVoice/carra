@@ -1,29 +1,39 @@
-import { Flex } from 'components/Flex'
-import { Spacer } from 'components/spacer/Spacer'
-import { TextBody, TextHeader } from 'components/text/Text'
-import { Trans, useTranslation } from 'next-i18next'
-import { SHeaderText, STableHeaderWrapper } from './TableHeader.styled'
+import { Table, flexRender } from "@tanstack/react-table"
+import { FC } from "react"
+import { SortingIndicator } from "./SortingIndicator"
 
 interface Props {
-  results: number
-  tableName: string
+  table: Table<any>
 }
 
-export function TableHeader({ results, tableName }: Props) {
-  const { t } = useTranslation()
-
+export const CampaignListTableHeader: FC<Props> = ({ table }) => {
   return (
-    <STableHeaderWrapper variant="column">
-      <Flex variant="row" justify="between">
-        <TextHeader variant="h5">{tableName}</TextHeader>
-        <SHeaderText size="small">
-          <Trans t={t} i18nKey={'table_results'} tOptions={{ results }}>
-            <TextBody color="black" size="small" />
-          </Trans>
-        </SHeaderText>
-      </Flex>
+    <>
+      {table.getHeaderGroups().map((headerGroup) => (
+        <div key={headerGroup.id} className="flex justify-between rounded-t-xl border bg-gray-50">
+          {headerGroup.headers.map((header) => {
+            const sorting = header.column.getIsSorted()
 
-      <Spacer size={4} axis="vertical" />
-    </STableHeaderWrapper>
+            return (
+              <div key={header.id} className="flex-1">
+                {header.isPlaceholder ? null : (
+                  <>
+                    <div
+                      className={`min-h[48px] flex items-center justify-center gap-1 px-6 py-3 ${
+                        header.column.getCanSort() ? "cursor-pointer select-none" : ""
+                      }`}
+                      onClick={header.column.getToggleSortingHandler()}
+                    >
+                      {flexRender(header.column.columnDef.header, header.getContext())}
+                      <SortingIndicator sorting={sorting} />
+                    </div>
+                  </>
+                )}
+              </div>
+            )
+          })}
+        </div>
+      ))}
+    </>
   )
 }

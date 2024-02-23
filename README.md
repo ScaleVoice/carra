@@ -1,38 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Setup
 
-## Getting Started
-
-First, run the development server:
+Install the dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+yarn install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Replace globally carra with the name of the project.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+> Recommendation: use full-text search
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+We follow these conventions:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- sentry project is named carra-react
+- github repo is named carra-web
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+> Note: Don't add -web or -react to the carra
 
-## Learn More
+### Firebase
 
-To learn more about Next.js, take a look at the following resources:
+Setup firebase **DEV**, **STAGE** and **PROD** projects _(might already be set up by BE)_
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Create a new Web application
+- Go to: https://console.firebase.google.com/project/PROJECT_NAME/authentication/emails _(Authentication -> Templates)_ and replace all template variables
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+`https://PROJECT_NAME.firebaseapp.com/__/auth` for \
+ `https://PROJECT_NAME.ENV.cleevio.dev/auth`
 
-## Deploy on Vercel
+> Note: ENV = devel, staging
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Fill in .env.local, .env.development, .env.staging with firebase project settings
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+> Note: Production setup is going to be added later
+
+### Sentry
+
+Create a new project: https://sentry.cleevio.io/organizations/cleevio/projects/new/
+
+- Project name: carra-react
+- Project platform: React
+- Fill in .env.local, .env.development, .env.staging with sentry DSN
+
+## Spin it up!
+
+> Note: Project is automatically deployed on push to main branch
+
+Start the dev server:
+
+```bash
+yarn dev
+```
+
+Build the app for production:
+
+```bash
+yarn build
+```

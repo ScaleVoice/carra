@@ -1,0 +1,38 @@
+{
+  "required": "This field is required.",
+  "minLength": "This field must contain at least {{ length }} characters.",
+  "minFiles": "This field must contain at least {{ length }} files.",
+  "email": "This field must be a valid email address.",
+  "phone": "Invalid phone number format.",
+  "fileSize": "The maximum file size is {{ size }} MB.",
+  "date": {
+    "greaterThan": "End date must be greater than the start date.",
+    "past": "The date must be in the future."
+  },
+  "password": {
+    "pattern": "Your password must be at least 8 characters long and contain only letters and numbers.",
+    "length": "This field must contain at least 8 characters.",
+    "hint": "At least 8 characters."
+  },
+  "credentials": {
+    "incorrect": "Incorrect password or email address.",
+    "blocked": "Too many login attempts. Please try again later.",
+    "notFound": "User with this email address does not exist.",
+    "alreadyInUse": "An account with this email already exists. Please log in."
+  },
+  "street": {
+    "pattern": "Enter the street name including the house number."
+  },
+  "ico": {
+    "pattern": "Invalid format of IČO (Identification Number).",
+    "ares": "IČO not found in the registers.",
+    "alreadyExists": "An account for this company already exists. For connecting to the company account, please contact {{superAdminEmail}}."
+  },
+  "zipCode": {
+    "pattern": "Invalid format of ZIP code (PSČ)."
+  },
+  "socialNetworks": {
+    "maxLength": "The maximum number of links is 10."
+  },
+  "unknownError": "An unknown error occurred. Please try again later."
+}
