@@ -1,5 +1,6 @@
 import { QueryProvider } from "@/components/Providers/QueryProvider"
 import TranslationsProvider from "@/i18n/TranslationProvider"
+import { FilterProvider } from "@/sections/filtering/reducer/FiltersContext"
 import { ClerkProvider } from "@clerk/nextjs"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
@@ -28,7 +29,7 @@ export default async function RootLayout({
         <ClerkProvider>
           <QueryProvider>
             <TranslationsProvider locale={params.locale} resources={resources}>
-              {children}
+              <FilterProvider>{children}</FilterProvider>
             </TranslationsProvider>
           </QueryProvider>
         </ClerkProvider>

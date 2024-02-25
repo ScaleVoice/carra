@@ -2,7 +2,17 @@
 const { withSentryConfig } = require("@sentry/nextjs")
 
 module.exports = withSentryConfig(
-  {},
+  {
+    images: {
+      remotePatterns: [
+        {
+          protocol: "https",
+          hostname: "img.clerk.com",
+          port: "",
+        },
+      ],
+    },
+  },
   {
     // For all available options, see:
     // https://github.com/getsentry/sentry-webpack-plugin#options

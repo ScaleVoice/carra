@@ -8,10 +8,10 @@ interface LogoProps {
   className?: string
 }
 
-export const Logo: FC<LogoProps> = ({ width = 168, height = 46, variant = "light", className = "" }) => {
+export const Logo: FC<LogoProps> = ({ width = 100, height = 20, variant = "primary", className = "" }) => {
   return (
     <Image
-      src={`/assets/images/logo_${variant}.svg`}
+      src={`/images/logo_${variant}.png`}
       alt="Logo"
       width={width}
       height={height}

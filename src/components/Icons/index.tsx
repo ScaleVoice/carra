@@ -30,6 +30,10 @@ import IconSliders from "./IconSliders"
 import IconSuccess from "./IconSuccess"
 import IconTrades from "./IconTrades"
 import IconTrash from "./IconTrash"
+import ArrowDown from "./ArrowDown"
+import ArrowLeft from "./ArrowLeft"
+import ArrowRight from "./ArrowRight"
+import ArrowUp from "./ArrowUp"
 
 export type IconName =
   | "IconAppointments"
@@ -60,6 +64,10 @@ export type IconName =
   | "IconSuccess"
   | "IconTrades"
   | "IconTrash"
+  | "ArrowDown"
+  | "ArrowLeft"
+  | "ArrowRight"
+  | "ArrowUp"
 
 const icons = {
   IconAppointments,
@@ -90,6 +98,10 @@ const icons = {
   IconSuccess,
   IconTrades,
   IconTrash,
+  ArrowDown,
+  ArrowLeft,
+  ArrowRight,
+  ArrowUp,
 }
 
 export const IconNameSet = new Set(Object.keys(icons))

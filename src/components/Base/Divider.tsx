@@ -1,7 +1,10 @@
 import { FC } from "react"
-import { Divider as RtuDivider } from "rtu-components"
 import { twMerge } from "tailwind-merge"
 
-export const Divider: FC<{ className?: string }> = ({ className }) => {
-  return <RtuDivider className={twMerge(`bg-gray-50 ${className}`)} />
+type DividerProps = {
+  className?: string
 }
+
+export const Divider: FC<DividerProps> = ({ className }) => (
+  <div className={twMerge("h-[1px] w-full bg-black/10 shadow-sm", className)}></div>
+)

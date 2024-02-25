@@ -15,7 +15,7 @@
   "eur_price_custom": "{{ price }}",
   "eur_price_no_vat": "{{ n, formatEur }} without VAT",
   "eur_price_decimal_no_vat": "{{ n, formatEurDecimals }} without VAT",
-  "logout": "Log out",
+  "signout": "Sign out",
   "pricing_app_button": "Open Pricing App",
 
   "single_select_empty_label": "Choose one",
@@ -63,6 +63,8 @@
   "export": "Export",
   "from": "From",
   "to": "To",
+  "previous": "Previous",
+  "next": "Next",
 
   "date_from": "From",
   "date_to": "To",
