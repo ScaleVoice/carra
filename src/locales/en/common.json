@@ -116,7 +116,7 @@
   "header_redirect_modal_appointments_redirect": "Continue to Appointments app?",
   "header_redirect_modal_auctions_redirect": "Continue to Auction app?",
 
-  "table_results": "Results: <0>{{ results }}</0>",
+  "table_results": "RESULTS: <0>{{ results }}</0>",
   "table_next_page": "Next page",
   "table_no_results_heading": " We didn’t find any exact matches.",
   "table_no_results_hint": "Try to adjust or reset filters.",

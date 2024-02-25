@@ -13,7 +13,7 @@ function Header<T>({ table }: Props<T>) {
         return (
           <div
             key={headerGroup.id}
-            className={twMerge("flex rounded-t-lg border-x border-t border-gray-50 bg-gray-25 text-gray")}
+            className={twMerge("flex rounded-t-lg border-x border-t border-gray-50 bg-gray-25 text-gray-600")}
           >
             {headerGroup.headers.map((header) => (
               <Fragment key={header.id}>{flexRender(header.column.columnDef.header, header.getContext())}</Fragment>

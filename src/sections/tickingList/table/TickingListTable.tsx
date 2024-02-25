@@ -1,5 +1,6 @@
 import Table from "@/components/Table"
 import TableContent from "@/components/Table/TableContent"
+import { TableHeader, TableHeaderTitle } from "@/components/Table/TableHeader"
 import TablePagination from "@/components/Table/TablePagination"
 import { useTranslation } from "react-i18next"
 import useTickingListTable from "../hooks/useTickingListTable"
@@ -35,7 +36,9 @@ export const TickingListTable = () => {
 
   return (
     <Table
-      headerComponent={null}
+      headerComponent={
+        <TableHeader titleComponent={<TableHeaderTitle itemsCount={totalCount} title={"Filtered ads"} />} />
+      }
       contentComponent={<TableContent table={table} />}
       paginationComponent={
         <TablePagination

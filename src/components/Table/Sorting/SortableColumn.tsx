@@ -49,7 +49,9 @@ export function useSortableColumns<T extends RowData>(module: keyof State) {
         className="flex flex-1 cursor-pointer px-6 py-4 text-left"
       >
         <div className="flex items-center gap-1">
-          <Text size="sm">{label}</Text>
+          <Text size="sm" className="text-gray-600">
+            {label}
+          </Text>
 
           <SortingIndicator sorting={currentSorting} />
         </div>

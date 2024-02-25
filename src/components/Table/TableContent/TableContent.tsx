@@ -7,10 +7,10 @@ interface Props<T> {
 }
 function TableContent<T>({ table }: Props<T>) {
   return (
-    <div className="mt-32 p-10">
+    <>
       <Header table={table} />
       <TableRows table={table} />
-    </div>
+    </>
   )
 }
 

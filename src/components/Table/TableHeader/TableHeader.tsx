@@ -7,8 +7,8 @@ interface Props {
 
 const TableHeader = ({ buttonComponent, moreButtonComponent, searchComponent, titleComponent }: Props) => {
   return (
-    <div className="flex items-center justify-between gap-x-4 p-6">
-      <div>{titleComponent}</div>
+    <div className="flex items-center justify-between py-6">
+      {titleComponent}
       {(searchComponent || buttonComponent || moreButtonComponent) && (
         <div className="flex items-center gap-x-10">
           {searchComponent}
