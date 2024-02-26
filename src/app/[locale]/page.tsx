@@ -4,11 +4,8 @@ import { useTranslation } from "react-i18next"
 
 export const runtime = "edge" // 'nodejs' (default) | 'edge'
 
-import { TableLayout } from "@/components/Layout/TableLayout"
 import { Header } from "@/components/Header/Header"
-import { TableFilters } from "@/sections/filtering/TableFilters"
-import { TableFiltersToolbar } from "@/sections/filtering/TableFiltersToolbar"
-import { initialState } from "@/sections/filtering/reducer/FiltersState"
+import { TableLayout } from "@/components/Layout/TableLayout"
 // import { useTickingListFilters } from "@/sections/tickingList/filters/TickingListFilters"
 import { TickingListTable } from "@/sections/tickingList/table/TickingListTable"
 
@@ -19,7 +16,7 @@ export default function Page() {
 
   return (
     <main>
-      <Header  />
+      <Header />
 
       <TableLayout openedFilters={false}>
         {/* <TableFilters filters={filters} openedFilters={openedFilters} toggleFiltersMenu={toggleOpenFilters} /> */}

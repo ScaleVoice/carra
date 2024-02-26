@@ -1,9 +1,9 @@
+import { paths } from "@/api/generated/ticking"
+import { QUERY_KEYS } from "@/constants/queryKeys"
+import { FilterWithPagination, TickingFilters, createSortArray } from "@/sections/filtering/reducer/Filters.utils"
+import { useFiltersContext } from "@/sections/filtering/reducer/FiltersContext"
 import { useQuery } from "@tanstack/react-query"
-import { QUERY_KEYS } from "constants/queryKeys"
-import { paths } from "core/api/generated/ticking"
 import { mockTickingAdSearchResponse } from "mocks/ticking"
-import { FilterWithPagination, TickingFilters, createSortArray } from "sections/filtering/reducer/Filters.utils"
-import { useFiltersContext } from "sections/filtering/reducer/FiltersContext"
 import { useTickingListTableColumns } from "../hooks/useTickingListColumns"
 
 type TickingResponse =
@@ -51,7 +51,7 @@ function useTickingListData(filters: FilterWithPagination<Partial<TickingFilters
     queryKey: QUERY_KEYS.tickingList({ filters, sort }),
     queryFn: async () => await fetchTickingListData(filters, sort),
     // to avoid jumping between loading and success states
-    keepPreviousData: true,
+    // keepPreviousData: true,
     refetchInterval: REFETCH_INTERVAL,
   })
 }

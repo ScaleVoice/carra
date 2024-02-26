@@ -2,7 +2,7 @@ import { Icon } from "@/components/Icons"
 import { SortDirection } from "@tanstack/react-table"
 
 type Props = {
-  sorting: SortDirection
+  sorting: SortDirection | null
 }
 
 const SortingIndicator = ({ sorting }: Props) => {

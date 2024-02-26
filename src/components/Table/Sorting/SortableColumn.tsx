@@ -22,7 +22,7 @@ const DEFAULT_ICON_COLOR = GRAY[400]
 export function useSortableColumns<T extends RowData>(module: keyof State) {
   const { state, dispatch } = useFiltersContext()
 
-  const onHeaderClick = (id: string, currentSorting: SortDirection) => {
+  const onHeaderClick = (id: string, currentSorting: SortDirection | null) => {
     const isASC = currentSorting === "asc"
     const isDESC = currentSorting === "desc"
 
@@ -41,6 +41,7 @@ export function useSortableColumns<T extends RowData>(module: keyof State) {
     id: P,
     { cell, label, size, minSize, maxSize }: CreateColumnArgs<T, DeepKey<T, P>>,
   ): ColumnDef<T, DeepKey<T, P>> => {
+    // @ts-ignore
     const currentSorting = state[module].sorting?.[id] as SortDirection
 
     const header = () => (

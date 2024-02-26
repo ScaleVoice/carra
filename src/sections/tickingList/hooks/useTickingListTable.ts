@@ -57,7 +57,7 @@ const useTickingListTable = () => {
 
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
 
-  const { columns, lovIsLoading }  = useTickingListTableColumns()
+  const { columns } = useTickingListTableColumns()
 
   const table = useReactTable({
     data: (data?.totalPages && debouncedSearchValue ? data?.content : data?.content) ?? [],
