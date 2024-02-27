@@ -13,7 +13,7 @@ export const buttonVariants = cva(
       variant: {
         primary: ["bg-primary", "text-white", "hover:bg-primary/90", "active:bg-primary-700"],
         secondary: ["bg-secondary", "text-white", "hover:bg-secondary/90", "active:bg-secondary-700"],
-        outlined: ["border", "border-gray-200", "hover:border-gray", "active:border-gray-300", "text-gray"],
+        outlined: ["border", "border-gray-200", "hover:border-gray", "active:border-gray-300", "text-gray-400"],
         custom: [""],
       },
       size: {

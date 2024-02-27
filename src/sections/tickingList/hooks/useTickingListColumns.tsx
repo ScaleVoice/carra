@@ -26,13 +26,13 @@ export const useTickingListTableColumns = () => {
 
   const columns = [
     createSortableColumn("adNo", {
-      label: t("tickingList:table_column_id"),
+      label: t("tickingList:id"),
       cell: (props) => <Text size="sm">{props.row.original.adNo}</Text>,
       size: 110,
       minSize: 110,
     }),
     createSortableColumn("makeId", {
-      label: t("tickingList:table_column_make"),
+      label: t("tickingList:make"),
       cell: (props) => {
         const makeId = props.row.original.makeId
 
@@ -42,7 +42,7 @@ export const useTickingListTableColumns = () => {
       },
     }),
     createSortableColumn("modelId", {
-      label: t("tickingList:table_column_model"),
+      label: t("tickingList:model"),
       cell: (props) => {
         const modelId = props.row.original.modelId
         const modelLabel = modelQuery.data?.content.find((model) => model.id === modelId)?.name
@@ -51,7 +51,7 @@ export const useTickingListTableColumns = () => {
       },
     }),
     createSortableColumn("yearOfMake", {
-      label: t("tickingList:table_column_year_of_make"),
+      label: t("tickingList:year_of_make"),
       cell: (props) => {
         const year = props.row.original.yearOfMake
 
@@ -59,7 +59,7 @@ export const useTickingListTableColumns = () => {
       },
     }),
     createSortableColumn("speedometerMileageKm", {
-      label: t("tickingList:table_column_mileage"),
+      label: t("tickingList:mileage"),
       cell: (props) => {
         const mileage = props.row.original.speedometerMileageKm
 
@@ -68,7 +68,7 @@ export const useTickingListTableColumns = () => {
       size: 120,
     }),
     createSortableColumn("expectedPrice", {
-      label: t("tickingList:table_column_price"),
+      label: t("tickingList:price"),
       cell: (props) => {
         const price = props.getValue()
 
@@ -77,7 +77,7 @@ export const useTickingListTableColumns = () => {
       size: 120,
     }),
     createSortableColumn("fuelId", {
-      label: t("tickingList:table_column_fuel_type"),
+      label: t("tickingList:fuel_type"),
       cell: (props) => {
         const fuelId = props.row.original.fuelId
 
@@ -88,7 +88,7 @@ export const useTickingListTableColumns = () => {
       size: 80,
     }),
     createSortableColumn("bodyId", {
-      label: t("tickingList:table_column_body"),
+      label: t("tickingList:body"),
       cell: (props) => {
         const bodyId = props.row.original.bodyId
 
@@ -99,12 +99,12 @@ export const useTickingListTableColumns = () => {
       size: 120,
     }),
     createSortableColumn("seller.name", {
-      label: t("tickingList:table_column_seller_name"),
+      label: t("tickingList:seller_name"),
       cell: (props) => <Text size="sm">{props.getValue() ?? t("common:nil_value")}</Text>,
       minSize: 200,
     }),
     createSortableColumn("transmissionId", {
-      label: t("tickingList:table_column_transmission"),
+      label: t("tickingList:transmission"),
       cell: (props) => {
         const value = props.row.original.transmissionId
 

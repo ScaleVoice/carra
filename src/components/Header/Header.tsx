@@ -22,7 +22,7 @@ export function Header() {
         <SelectBranch />
       </div>
 
-      <div className="flex flex-grow justify-center gap-4">
+      <div className="flex justify-center gap-4">
         <HeaderLink href={LINKS.home} label={t("header_home_link")} Icon={<Icon name="IconCallCustomer" />} />
 
         <HeaderLink

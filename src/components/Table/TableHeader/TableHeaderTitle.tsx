@@ -11,7 +11,7 @@ const TableHeaderTitle = ({ itemsCount, title }: Props) => {
 
   return (
     <div className="flex w-full items-center justify-between">
-      <Text size="xl" weight="bold">
+      <Text size="xl" weight="bold" className="text-black">
         {title}
       </Text>
 

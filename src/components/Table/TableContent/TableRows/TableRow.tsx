@@ -4,13 +4,19 @@ import { twMerge } from "tailwind-merge"
 interface Props<T> {
   row: Row<T>
   isLast: boolean
+  onRowClick?: (item: T) => void
 }
 
-function TableRow<T>({ row, isLast }: Props<T>) {
+function TableRow<T>({ row, isLast, onRowClick }: Props<T>) {
   return (
     <div
       key={row.id}
-      className={twMerge("flex w-full border border-t-0 border-gray-50 text-gray", isLast && "rounded-b-lg")}
+      className={twMerge(
+        "flex w-full border border-t-0 border-gray-50 text-gray hover:bg-primary-25",
+        isLast && "rounded-b-lg",
+        onRowClick && "cursor-pointer",
+      )}
+      onClick={() => onRowClick?.(row.original)}
     >
       {row.getVisibleCells().map((cell) => (
         <div key={cell.id} className="flex-1 px-6 py-4">

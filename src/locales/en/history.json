@@ -23,7 +23,5 @@
   "table_column_downloaded_at": "Downloaded at",
 
   "history_reaction_SMS_ONLY": "SMS",
-  "history_reaction_CALL": "Call Yes",
-  "history_reaction_HOT_DEAL": "Hot Deal",
   "history_reaction_NOT_INTERESTED": "Not Interested"
 }

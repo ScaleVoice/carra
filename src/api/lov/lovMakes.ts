@@ -67,7 +67,7 @@ export function useMakeList(
 export function useMakeDetail(makeId?: string) {
   const { data, ...rest } = useLovMakesQuery(
     { active: true },
-    { enabled: !!makeId, queryKey: QUERY_KEYS.lovMakes({ active: true }) },
+    { enabled: !!makeId, queryKey: QUERY_KEYS.lovMakes({ active: true, makeId }) },
   )
 
   const make = useMemo(() => {

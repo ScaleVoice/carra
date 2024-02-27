@@ -34,6 +34,9 @@ import ArrowDown from "./ArrowDown"
 import ArrowLeft from "./ArrowLeft"
 import ArrowRight from "./ArrowRight"
 import ArrowUp from "./ArrowUp"
+import PhoneOutgoing01 from "./PhoneOutgoing01"
+import PhoneX from "./PhoneX"
+import Star01 from "./Star01"
 
 export type IconName =
   | "IconAppointments"
@@ -68,6 +71,9 @@ export type IconName =
   | "ArrowLeft"
   | "ArrowRight"
   | "ArrowUp"
+  | "PhoneOutgoing01"
+  | "PhoneX"
+  | "Star01"
 
 const icons = {
   IconAppointments,
@@ -102,6 +108,9 @@ const icons = {
   ArrowLeft,
   ArrowRight,
   ArrowUp,
+  PhoneOutgoing01,
+  PhoneX,
+  Star01,
 }
 
 export const IconNameSet = new Set(Object.keys(icons))
