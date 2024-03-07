@@ -23,7 +23,7 @@ export const TickingListModal: FC<TickingListModalProps> = ({ item, onClose }) =
     <Modal
       isOpen={item !== null}
       onClose={onClose}
-      className="slide-in fixed right-0 h-full w-[780px] gap-4 rounded-none bg-white"
+      className="slide-in fixed right-0 h-full w-[780px] gap-3 rounded-none bg-white"
     >
       <div className="flex w-full justify-between">
         <div className="flex flex-col">
@@ -44,8 +44,8 @@ export const TickingListModal: FC<TickingListModalProps> = ({ item, onClose }) =
         options={options}
         value={activeTab}
         onClick={setActiveTab}
-        containerClassName="p-1.5 bg-gray-25 w-full"
-        className="w-1/3"
+        containerClassName="p-1 bg-gray-25 w-full"
+        className="w-1/3 p-2"
       />
 
       {activeTab === "car" && <Car item={item} />}

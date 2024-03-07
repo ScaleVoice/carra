@@ -35,7 +35,7 @@ export function PricingHistogram({ item }: Props) {
   console.log("hex", hexToRgb(PRIMARY["200"], 0.08))
 
   return (
-    <ResponsiveContainer width="100%" height={300}>
+    <ResponsiveContainer width="100%" height={200}>
       <BarChart data={graphData} barCategoryGap={0}>
         <Bar dataKey="price" fill={PRIMARY[25]} />
         <XAxis tickFormatter={() => ""} tickLine={false} axisLine={false} tickCount={webPositionPriceList?.length} />

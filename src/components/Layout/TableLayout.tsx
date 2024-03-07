@@ -3,9 +3,18 @@ import { twMerge } from "tailwind-merge"
 
 interface Props {
   children: ReactNode
-  openedFilters: boolean
+  isSidebarOpened: boolean
 }
 
-export function TableLayout({ children, openedFilters }: Props) {
-  return <div className={twMerge("grid", openedFilters ? "" : "")}>{children}</div>
+export function TableLayout({ children, isSidebarOpened }: Props) {
+  return (
+    <div
+      className={twMerge(
+        "grid transition-all",
+        isSidebarOpened ? "grid-cols-sidebarOpened" : "grid-cols-sidebarClosed",
+      )}
+    >
+      {children}
+    </div>
+  )
 }

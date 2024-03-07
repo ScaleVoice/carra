@@ -8,7 +8,7 @@ export type ButtonRoundVariantProps = VariantProps<typeof buttonRoundVariants>
 export const buttonRoundVariants = cva("rounded-full font-bold", {
   variants: {
     variant: {
-      primary: ["text-primary-900", "bg-primary", "hover:bg-primary-400", "active:bg-primary-600"],
+      primary: ["text-primary", "bg-primary-25", "hover:bg-primary-50", "active:bg-primary-100"],
       outlined: [
         "text-gray",
         "border",

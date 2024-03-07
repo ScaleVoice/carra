@@ -12,7 +12,7 @@ type Props = {
   placeholder: string
 }
 
-export const Select: FC<Props> = ({ name, value, onChange, options, placeholder }) => {
+export const PopupSelect: FC<Props> = ({ name, value, onChange, options, placeholder }) => {
   return (
     <Listbox value={value} onChange={onChange} name={name}>
       {({ open }) => (
@@ -24,12 +24,12 @@ export const Select: FC<Props> = ({ name, value, onChange, options, placeholder 
               value && "text-primary",
             )}
           >
-            {value ? value.label : placeholder}
+            {value ? value.value : placeholder}
 
             <Icon name="IconChevronDown" className="ml-2 h-4 w-4" />
           </Listbox.Button>
 
-          <div className="relative z-10">
+          <div className="relative">
             <Listbox.Options
               className={twMerge(
                 "absolute top-0 w-full rounded-md border border-gray-50 bg-white",

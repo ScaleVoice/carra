@@ -1,52 +1,43 @@
-import { FilterWithPagination, Sorting, TickingFilters } from './Filters.utils'
+import { Sorting, TickingFilters } from "./Filters.utils"
 
 export type State = {
   tickingList: {
-    filters: FilterWithPagination<Partial<TickingFilters>>
-    sorting: Sorting['tickingList']
-    openedFilterMenu: boolean
+    filters: Partial<TickingFilters>
+    sorting: Sorting["tickingList"]
+    pagination: {
+      page: number
+    }
+    isFilterMenuOpened: boolean
   }
   history: {
-    filters: FilterWithPagination<Partial<TickingFilters>>
-    sorting: Sorting['history']
-    openedFilterMenu: boolean
-  }
-  callCustomer: {
-    filters: FilterWithPagination<Partial<TickingFilters>>
-    sorting: Sorting['callCustomer']
-    openedFilterMenu: boolean
+    filters: Partial<TickingFilters>
+    sorting: Sorting["history"]
+    pagination: {
+      page: number
+    }
+    isFilterMenuOpened: boolean
   }
 }
 
 export const initialState: State = {
   tickingList: {
-    filters: {
-      page: 1,
-      carGrades: [2, 3, 4, 5]
-    },
+    filters: {},
     sorting: {
-      downloadedAt: 'desc'
+      downloadedAt: "desc",
     },
-    openedFilterMenu: false
+    pagination: {
+      page: 1,
+    },
+    isFilterMenuOpened: false,
   },
   history: {
-    filters: {
-      page: 1,
-      stateActions: ['SMS_ONLY', 'CALL', 'HOT_DEAL', 'NOT_INTERESTED']
-    },
+    filters: {},
     sorting: {
-      updatedAt: 'desc'
+      updatedAt: "desc",
     },
-    openedFilterMenu: false
+    pagination: {
+      page: 1,
+    },
+    isFilterMenuOpened: false,
   },
-  callCustomer: {
-    filters: {
-      page: 1,
-      stateActions: ['HOT_DEAL', 'CALL']
-    },
-    sorting: {
-      downloadedAt: 'desc'
-    },
-    openedFilterMenu: false
-  }
 }

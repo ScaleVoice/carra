@@ -87,6 +87,10 @@ const tailwindConfig = {
   darkMode: "class",
   theme: {
     extend: {
+      gridTemplateColumns: {
+        sidebarOpened: "16rem calc(100vw - 16rem)",
+        sidebarClosed: "5rem calc(100vw - 5rem)",
+      },
       colors: {
         primary: PRIMARY,
         error: ERROR,

@@ -26,7 +26,7 @@ const TablePagination = ({
   }, [totalPages, currentPage])
 
   return (
-    <div className={twMerge("flex items-center justify-between gap-x-6 px-6 py-5", className)}>
+    <div className={twMerge("flex items-center justify-between gap-x-6 px-6 py-5 w-full", className)}>
       <PaginationButton onClick={handlePrevButtonOnClick} disabled={currentPage <= 1} icon="ArrowLeft" />
       
       <div className="flex items-center gap-x-0.5">

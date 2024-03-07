@@ -7,6 +7,7 @@ import { TableHeader, TableHeaderTitle } from "@/components/Table/TableHeader"
 import TablePagination from "@/components/Table/TablePagination"
 import { useCallback, useState } from "react"
 import { useTranslation } from "react-i18next"
+import { ActiveFilters } from "../filters/ActiveFilters"
 import useTickingListTable from "../hooks/useTickingListTable"
 import { TickingListModal } from "../modal/TickingListModal"
 import { TickingItem } from "./TickingListTable.utils"
@@ -41,8 +42,13 @@ export const TickingListTable = () => {
 
   return (
     <>
-      <div className="flex px-10 pt-10">
-        <SearchInput name="ticking-search" placeholder={t("common:header_search_placeholder")} />
+      <div className="flex gap-4 px-10 pt-6">
+        <SearchInput
+          name="ticking-search"
+          placeholder={t("common:header_search_placeholder")}
+          containerClassName="self-baseline"
+        />
+        <ActiveFilters />
       </div>
 
       <Table
@@ -58,7 +64,7 @@ export const TickingListTable = () => {
         }
         paginationComponent={
           <TablePagination
-            className="fixed bottom-0 w-full"
+            className="relative bottom-0 mt-auto border-t border-gray-50"
             currentPage={currentPage}
             handleNextButtonOnClick={handleNextButtonOnClick}
             handlePaginationNumberOnClick={handlePaginationNumberOnClick}

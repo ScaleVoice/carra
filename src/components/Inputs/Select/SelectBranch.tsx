@@ -1,16 +1,16 @@
 import { useState } from "react"
-import { Select } from "./Select"
+import { Option, Select } from "./Select"
 
 const options = [
-  { id: 1, name: "Durward Reynolds", unavailable: false },
-  { id: 2, name: "Kenton Towne", unavailable: false },
-  { id: 3, name: "Therese Wunsch", unavailable: false },
-  { id: 4, name: "Benedict Kessler", unavailable: false },
-  { id: 5, name: "Katelyn Rohan", unavailable: false },
+  { value: 1, label: "Durward Reynolds", disabled: false },
+  { value: 2, label: "Kenton Towne", disabled: false },
+  { value: 3, label: "Therese Wunsch", disabled: false },
+  { value: 4, label: "Benedict Kessler", disabled: false },
+  { value: 5, label: "Katelyn Rohan", disabled: false },
 ]
 
 export const SelectBranch = () => {
-  const [value, setValue] = useState()
+  const [value, setValue] = useState<Option | null>(null)
 
   return <Select value={value} onChange={setValue} options={options} placeholder="Select branch" />
 }

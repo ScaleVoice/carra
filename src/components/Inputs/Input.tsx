@@ -16,7 +16,7 @@ export type InputProps = Omit<React.HTMLProps<HTMLInputElement>, "onChange" | "o
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   }
 
-const inputVariants = cva(["peer flex-grow appearance-none rounded-lg outline-none"], {
+const inputVariants = cva(["peer w-full flex-grow appearance-none rounded-lg outline-none"], {
   variants: {
     size: {
       large: ["py-3", "px-5", "text-lg"],
@@ -90,4 +90,4 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
   },
 )
 
-Input.displayName = "BaseInput"
+Input.displayName = "Input"

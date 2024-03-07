@@ -197,6 +197,7 @@
   "filters_server": "Server",
   "filters_private": "Private",
   "filters_downloaded_at_last_hour": "Last hour",
+  "filters_downloaded_at": "Downloaded at",
 
   "body_type_h": "Hatchback",
   "body_type_s": "Sedan",

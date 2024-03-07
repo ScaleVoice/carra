@@ -7,19 +7,25 @@ export const runtime = "edge" // 'nodejs' (default) | 'edge'
 import { Header } from "@/components/Header/Header"
 import { TableLayout } from "@/components/Layout/TableLayout"
 // import { useTickingListFilters } from "@/sections/tickingList/filters/TickingListFilters"
+import { Sidebar } from "@/components/Sidebar/Sidebar"
+import { Filters } from "@/sections/tickingList/filters/Filters"
+import { useTickingListFilters } from "@/sections/tickingList/filters/useTickingListFilters"
 import { TickingListTable } from "@/sections/tickingList/table/TickingListTable"
 
 export default function Page() {
   const { t } = useTranslation()
-  // const { filters, defaultSearch, onSearch, clear, openedFilters, toggleOpenFilters, activeFilters } =
-  //   useTickingListFilters()
+  const { isFilterMenuOpened, toggleSidebar } = useTickingListFilters()
+
+  console.log("openFiltersMenu", isFilterMenuOpened)
 
   return (
     <main>
       <Header />
 
-      <TableLayout openedFilters={false}>
-        {/* <TableFilters filters={filters} openedFilters={openedFilters} toggleFiltersMenu={toggleOpenFilters} /> */}
+      <TableLayout isSidebarOpened={isFilterMenuOpened}>
+        <Sidebar open={isFilterMenuOpened} toggleSidebar={toggleSidebar}>
+          <Filters />
+        </Sidebar>
 
         <div className="flex flex-col">
           {/* <TableFiltersToolbar

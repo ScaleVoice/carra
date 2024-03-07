@@ -2,6 +2,11 @@
 /* eslint-disable curly */
 import { forwardRef, Ref } from "react"
 
+import ArrowDown from "./ArrowDown"
+import ArrowLeft from "./ArrowLeft"
+import ArrowRight from "./ArrowRight"
+import ArrowUp from "./ArrowUp"
+import ChevronRightDouble from "./ChevronRightDouble"
 import IconAppointments from "./IconAppointments"
 import IconArrowDropDown from "./IconArrowDropDown"
 import IconArrowDropUp from "./IconArrowDropUp"
@@ -30,10 +35,6 @@ import IconSliders from "./IconSliders"
 import IconSuccess from "./IconSuccess"
 import IconTrades from "./IconTrades"
 import IconTrash from "./IconTrash"
-import ArrowDown from "./ArrowDown"
-import ArrowLeft from "./ArrowLeft"
-import ArrowRight from "./ArrowRight"
-import ArrowUp from "./ArrowUp"
 import PhoneOutgoing01 from "./PhoneOutgoing01"
 import PhoneX from "./PhoneX"
 import Star01 from "./Star01"
@@ -71,6 +72,8 @@ export type IconName =
   | "ArrowLeft"
   | "ArrowRight"
   | "ArrowUp"
+  | "ChevronLeftDouble"
+  | "ChevronRightDouble"
   | "PhoneOutgoing01"
   | "PhoneX"
   | "Star01"
@@ -108,6 +111,7 @@ const icons = {
   ArrowLeft,
   ArrowRight,
   ArrowUp,
+  ChevronRightDouble,
   PhoneOutgoing01,
   PhoneX,
   Star01,

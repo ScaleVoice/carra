@@ -1,10 +1,8 @@
 import { paths } from "@/api/generated/ticking"
 import { QUERY_KEYS } from "@/constants/queryKeys"
-import { FilterWithPagination, TickingFilters, createSortArray } from "@/sections/filtering/reducer/Filters.utils"
-import { useFiltersContext } from "@/sections/filtering/reducer/FiltersContext"
+import { TickingFilters } from "@/sections/filtering/reducer/Filters.utils"
 import { useQuery } from "@tanstack/react-query"
 import { mockTickingAdSearchResponse } from "mocks/ticking"
-import { useTickingListTableColumns } from "../hooks/useTickingListColumns"
 
 type TickingResponse =
   paths["/ticking/ticking-app/ticking-ads/search"]["post"]["responses"]["200"]["content"]["application/com.driverama-v1+json"]
@@ -15,7 +13,7 @@ export type TickingItem = TickingResponse["content"][number]
 const REFETCH_INTERVAL = 180000
 
 // const fetchTickingListData = async (
-//   filters: FilterWithPagination<Partial<TickingFilters>>,
+//   filters: Partial<TickingFilters>>,
 //   sort?: string[]
 // ): Promise<TickingResponse> => {
 //   const response = await apiFetch(URLS.tickingAdsSearch, {
@@ -39,14 +37,11 @@ const REFETCH_INTERVAL = 180000
 //   return result
 // }
 
-const fetchTickingListData = async (
-  filters: FilterWithPagination<Partial<TickingFilters>>,
-  sort?: string[],
-): Promise<TickingResponse> => {
+const fetchTickingListData = async (filters: Partial<TickingFilters>, sort?: string[]): Promise<TickingResponse> => {
   return mockTickingAdSearchResponse
 }
 
-function useTickingListData(filters: FilterWithPagination<Partial<TickingFilters>>, sort?: string[]) {
+function useTickingListData(filters: Partial<TickingFilters>, sort?: string[]) {
   return useQuery({
     queryKey: QUERY_KEYS.tickingList({ filters, sort }),
     queryFn: async () => await fetchTickingListData(filters, sort),
@@ -54,48 +49,4 @@ function useTickingListData(filters: FilterWithPagination<Partial<TickingFilters
     // keepPreviousData: true,
     refetchInterval: REFETCH_INTERVAL,
   })
-}
-
-export function useTickingListTable() {
-  const {
-    state: {
-      tickingList: { filters, sorting, openedFilterMenu },
-    },
-    dispatch,
-  } = useFiltersContext()
-
-  const setPage = (page: number) => {
-    dispatch({
-      type: "SET_MODULE_FILTERS",
-      payload: {
-        module: "tickingList",
-        filters: {
-          page,
-        },
-      },
-    })
-  }
-
-  const query = useTickingListData(filters, createSortArray(sorting))
-
-  const { columns, lovsLoading } = useTickingListTableColumns()
-
-  const isLoading = lovsLoading || (query.isInitialLoading && query.isFetching)
-
-  return {
-    query: {
-      ...query,
-      data: {
-        ...query.data,
-        content: query.data?.content ?? [],
-        totalPages: query.data?.totalPages ?? 0,
-        totalElements: query.data?.totalElements ?? 0,
-      },
-    },
-    page: filters.page,
-    openedFilters: openedFilterMenu,
-    setPage,
-    columns,
-    isLoading,
-  }
 }

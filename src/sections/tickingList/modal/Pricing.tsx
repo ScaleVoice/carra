@@ -17,7 +17,7 @@ export const Pricing: FC<Props> = ({ item }) => {
 
   return (
     <>
-      <Text size="xl" className="mt-4 self-baseline text-gray-800">
+      <Text size="xl" className="self-baseline text-gray-800">
         {t("tabs_pricing_title")}
       </Text>
 
@@ -62,12 +62,19 @@ export const Pricing: FC<Props> = ({ item }) => {
         <div className="flex w-[49%] flex-col gap-3">
           <AttributeRowAlternative label={t("pricing_st")} value={getValue()} />
           <AttributeRowAlternative label={t("pricing_l_plan")} value={getValue()} />
-          <AttributeRowAlternative label={t("pricing_wp")} value={getValue()} />
-          <AttributeRowAlternative label={t("pricing_leasing")} value={getValue()} />
+          <AttributeRowAlternative label={t("pricing_wp")} value={getValue(item?.webPosition)} />
+          <AttributeRowAlternative label={t("pricing_leasing")} value={getValue()} className="border-none" />
         </div>
       </div>
 
-      {item && <PricingHistogram item={item} />}
+      {item && (
+        <>
+          <Text size="xl" className="mt-4 self-baseline text-gray-800">
+            {t("tabs_pricing_comparison")}
+          </Text>
+          <PricingHistogram item={item} />
+        </>
+      )}
     </>
   )
 }
