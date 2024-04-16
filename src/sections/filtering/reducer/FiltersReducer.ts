@@ -1,4 +1,4 @@
-import { TickingItem } from "@/sections/tickingList/table/TickingListTable.utils"
+import { TickingItem } from "@/api/useSearch"
 import { SortDirection } from "@tanstack/react-table"
 import { produce } from "immer"
 import { TickingFilters } from "./Filters.utils"

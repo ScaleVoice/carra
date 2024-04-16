@@ -1,8 +1,8 @@
 import { Text } from "@/components/Text"
 import { FC } from "react"
 import { useTranslation } from "react-i18next"
-import { TickingItem } from "../table/TickingListTable.utils"
 import { AttributeRow } from "./AttributeRow"
+import { TickingItem } from "@/api/useSearch"
 
 type Props = {
   seller?: TickingItem["seller"] | null

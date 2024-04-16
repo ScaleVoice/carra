@@ -4,12 +4,12 @@ import { ButtonRound } from "@/components/Buttons/ButtonRound"
 import { Icon } from "@/components/Icons"
 import { Text } from "@/components/Text"
 import { FC } from "react"
-import { TickingItem } from "../table/TickingListTable.utils"
 import { Car } from "./Car"
 import { Customer } from "./Customer"
 import { Footer } from "./Footer"
 import { Pricing } from "./Pricing"
 import { useTickingModalTabs } from "./useTickingModalTabs"
+import { TickingItem } from "@/api/useSearch"
 
 type TickingListModalProps = {
   item: TickingItem | null

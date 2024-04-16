@@ -1,7 +1,7 @@
+import { TickingItem } from "@/api/useSearch"
 import { Text } from "@/components/Text"
 import { FC } from "react"
 import { useTranslation } from "react-i18next"
-import { TickingItem } from "../table/TickingListTable.utils"
 import { AttributeRow } from "./AttributeRow"
 
 type Props = {
@@ -12,7 +12,9 @@ export const Car: FC<Props> = ({ item }) => {
   const { t } = useTranslation("tickingList")
   return (
     <>
-      <Text size="xl" className="text-gray-800 self-baseline mt-4">{t("tabs_car_title")}</Text>
+      <Text size="xl" className="mt-4 self-baseline text-gray-800">
+        {t("tabs_car_title")}
+      </Text>
       <div className="flex w-full flex-wrap justify-between gap-2 gap-y-8">
         <AttributeRow name="make" value={item?.makeId} label="Make" />
         <AttributeRow name="model" value={item?.modelId} label="Model" />

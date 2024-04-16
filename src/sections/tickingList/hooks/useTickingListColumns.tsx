@@ -2,6 +2,7 @@ import { useBodiesSearchList } from "@/api/lov/lovBodiesSearch"
 import { useFuelTypeList } from "@/api/lov/lovFuelTypes"
 import { useMakeList } from "@/api/lov/lovMakes"
 import { useLovModelsSearchQuery } from "@/api/lov/lovModelsSearch"
+import { TickingItem } from "@/api/useSearch"
 import { Icon } from "@/components/Icons"
 import { useSortableColumns } from "@/components/Table/Sorting/SortableColumn"
 import { Text } from "@/components/Text"
@@ -9,7 +10,6 @@ import { formatCurrency } from "@/utils/currency"
 import { createColumnHelper } from "@tanstack/react-table"
 import { useTranslation } from "react-i18next"
 import { ERROR, SUCCESS } from "tailwind.config"
-import { TickingItem } from "../table/TickingListTable.utils"
 
 export const useTickingListTableColumns = () => {
   const { t } = useTranslation(["tickingList", "common"])

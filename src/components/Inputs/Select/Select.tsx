@@ -120,7 +120,7 @@ export const Select = forwardRef(
       setTimeout(() => {
         setQuery?.("")
       }, transitionDuration)
-    }, [setQuery, transitionDuration, value])
+    }, [setQuery, transitionDuration])
 
     return (
       <Combobox nullable value={value || null} onChange={onChange}>

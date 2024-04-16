@@ -16,8 +16,8 @@ import {
   YAxis,
 } from "recharts"
 import { PRIMARY } from "tailwind.config"
-import { TickingItem } from "../table/TickingListTable.utils"
 import { getCarPriceAreaCoordinates, hexToRgb, priceTickFormatter } from "./Pricing.utils"
+import { TickingItem } from "@/api/useSearch"
 
 type Props = {
   item: TickingItem

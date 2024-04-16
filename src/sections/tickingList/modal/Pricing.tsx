@@ -3,10 +3,10 @@ import { formatCurrency } from "@/utils/currency"
 import { getValue } from "@/utils/value"
 import { FC } from "react"
 import { useTranslation } from "react-i18next"
-import { TickingItem } from "../table/TickingListTable.utils"
 import { AttributeRow } from "./AttributeRow"
 import { AttributeRowAlternative } from "./AttributeRowAlternative"
 import { PricingHistogram } from "./PricingHistogram"
+import { TickingItem } from "@/api/useSearch"
 
 type Props = {
   item?: TickingItem | null

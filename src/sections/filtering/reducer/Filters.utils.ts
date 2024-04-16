@@ -1,5 +1,5 @@
 import { paths } from "@/api/generated/ticking"
-import { TickingItem } from "@/sections/tickingList/table/TickingListTable.utils"
+import { TickingItem } from "@/api/useSearch"
 import { SortDirection } from "@tanstack/react-table"
 import { State } from "./FiltersState"
 

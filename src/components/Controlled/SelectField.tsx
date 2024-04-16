@@ -68,7 +68,7 @@ export function ControlledSelectField<O extends Option>({
         onSelect?.(value)
       }
     },
-    [field, valueAs],
+    [field, valueAs, onSelect],
   )
 
   return (

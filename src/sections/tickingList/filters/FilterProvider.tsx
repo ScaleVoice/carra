@@ -1,6 +1,6 @@
-import { createContext, ReactNode, useContext, useReducer } from "react"
-import { Dispatch, filtersReducer } from "./FiltersReducer"
-import { initialState, State } from "./FiltersState"
+import { Dispatch, filtersReducer } from "@/sections/filtering/reducer/FiltersReducer"
+import { State, initialState } from "@/sections/filtering/reducer/FiltersState"
+import { ReactNode, createContext, useContext, useReducer } from "react"
 
 type Props = { children: ReactNode }
 

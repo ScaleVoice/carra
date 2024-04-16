@@ -51,7 +51,7 @@ export function useSelect<O extends Option>(
   const clear = useCallback(() => {
     onChange(multi ? [] : "")
     setQuery("")
-  }, [onChange, name])
+  }, [onChange, setQuery, multi])
 
   useEffect(() => {
     onQueryChange?.(query)
