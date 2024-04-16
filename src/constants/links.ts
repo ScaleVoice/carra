@@ -1,5 +1,5 @@
 export const LINKS = {
   home: "/",
-  calendar: "/calendar",
+  appointments: "/appointments",
   history: "/history",
 }

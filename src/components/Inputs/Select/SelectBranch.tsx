@@ -1,16 +1,18 @@
-import { useState } from "react"
-import { Option, Select } from "./Select"
+import { useBranchOptions, useBranchSearch } from "@/api/useBranch"
+import { FC } from "react"
+import { Menu } from "../Menu/Menu"
+import { Option } from "../types"
 
-const options = [
-  { value: 1, label: "Durward Reynolds", disabled: false },
-  { value: 2, label: "Kenton Towne", disabled: false },
-  { value: 3, label: "Therese Wunsch", disabled: false },
-  { value: 4, label: "Benedict Kessler", disabled: false },
-  { value: 5, label: "Katelyn Rohan", disabled: false },
-]
+type Props = {
+  value: Option['value']
+  onChange: (value: Option['value']) => void
+  placeholder?: string
+  name: string
+}
 
-export const SelectBranch = () => {
-  const [value, setValue] = useState<Option | null>(null)
+export const SelectBranch: FC<Props> = ({ placeholder, ...props }) => {
+  const { data } = useBranchSearch()
+  const options = useBranchOptions(data ?? [])
 
-  return <Select value={value} onChange={setValue} options={options} placeholder="Select branch" />
+  return <Menu placeholder={placeholder || "Select branch"} options={options} {...props} />
 }

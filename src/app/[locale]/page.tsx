@@ -1,11 +1,8 @@
 "use client"
 
-import { useTranslation } from "react-i18next"
-
-export const runtime = "edge" // 'nodejs' (default) | 'edge'
-
 import { Header } from "@/components/Header/Header"
 import { TableLayout } from "@/components/Layout/TableLayout"
+import { useTranslation } from "react-i18next"
 // import { useTickingListFilters } from "@/sections/tickingList/filters/TickingListFilters"
 import { Sidebar } from "@/components/Sidebar/Sidebar"
 import { Filters } from "@/sections/tickingList/filters/Filters"

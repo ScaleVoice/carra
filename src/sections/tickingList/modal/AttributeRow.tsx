@@ -1,4 +1,4 @@
-import { Input, InputProps } from "@/components/Inputs/Input"
+import { Input, InputProps } from "@/components/Inputs/Input/Input"
 import { FC } from "react"
 import { twMerge } from "tailwind-merge"
 

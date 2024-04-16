@@ -9,6 +9,8 @@ import "../index.css"
 
 const inter = Inter({ subsets: ["latin"] })
 
+export const runtime = "edge" // 'nodejs' (default) | 'edge'
+
 export const metadata: Metadata = {
   title: "ScaleVoice",
   description: "",

@@ -191,7 +191,7 @@ function getInputVariants(componentState: ComponentVariantState) {
           'border-gray-100',
           'focus:border-primary',
           'checked:border-primary',
-          'checked:bg-primary-50',
+          'checked:bg-primary-25',
         ],
         [ComponentVariantType.RADIO]: [
           'border',

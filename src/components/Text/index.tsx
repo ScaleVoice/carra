@@ -17,7 +17,7 @@ const textVariants = cva("text-gray", {
       md: "text-[16px] leading-6",
       lg: "text-[18px] leading-7",
       xl: "text-[20px] leading-8",
-      "2xl": "text-[32px] leading-9",
+      "2xl": "text-[24px] leading-9",
     },
     weight: {
       regular: "font-normal",

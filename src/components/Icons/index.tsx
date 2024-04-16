@@ -2,11 +2,6 @@
 /* eslint-disable curly */
 import { forwardRef, Ref } from "react"
 
-import ArrowDown from "./ArrowDown"
-import ArrowLeft from "./ArrowLeft"
-import ArrowRight from "./ArrowRight"
-import ArrowUp from "./ArrowUp"
-import ChevronRightDouble from "./ChevronRightDouble"
 import IconAppointments from "./IconAppointments"
 import IconArrowDropDown from "./IconArrowDropDown"
 import IconArrowDropUp from "./IconArrowDropUp"
@@ -35,9 +30,19 @@ import IconSliders from "./IconSliders"
 import IconSuccess from "./IconSuccess"
 import IconTrades from "./IconTrades"
 import IconTrash from "./IconTrash"
+import ArrowDown from "./ArrowDown"
+import ArrowLeft from "./ArrowLeft"
+import ArrowRight from "./ArrowRight"
+import ArrowUp from "./ArrowUp"
+import Car from "./Car"
+import ChevronRightDouble from "./ChevronRightDouble"
+import Copy01 from "./Copy01"
+import Edit05 from "./Edit05"
+import MarkerPin01 from "./MarkerPin01"
 import PhoneOutgoing01 from "./PhoneOutgoing01"
 import PhoneX from "./PhoneX"
 import Star01 from "./Star01"
+import User01 from "./User01"
 
 export type IconName =
   | "IconAppointments"
@@ -72,11 +77,15 @@ export type IconName =
   | "ArrowLeft"
   | "ArrowRight"
   | "ArrowUp"
-  | "ChevronLeftDouble"
+  | "Car"
   | "ChevronRightDouble"
+  | "Copy01"
+  | "Edit05"
+  | "MarkerPin01"
   | "PhoneOutgoing01"
   | "PhoneX"
   | "Star01"
+  | "User01"
 
 const icons = {
   IconAppointments,
@@ -111,10 +120,15 @@ const icons = {
   ArrowLeft,
   ArrowRight,
   ArrowUp,
+  Car,
   ChevronRightDouble,
+  Copy01,
+  Edit05,
+  MarkerPin01,
   PhoneOutgoing01,
   PhoneX,
   Star01,
+  User01,
 }
 
 export const IconNameSet = new Set(Object.keys(icons))

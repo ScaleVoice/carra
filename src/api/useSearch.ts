@@ -41,12 +41,16 @@ const fetchTickingListData = async (filters: Partial<TickingFilters>, sort?: str
   return mockTickingAdSearchResponse
 }
 
-function useTickingListData(filters: Partial<TickingFilters>, sort?: string[]) {
+export function useTickingListData(filters: Partial<TickingFilters>, sort?: string[]) {
   return useQuery({
     queryKey: QUERY_KEYS.tickingList({ filters, sort }),
     queryFn: async () => await fetchTickingListData(filters, sort),
-    // to avoid jumping between loading and success states
-    // keepPreviousData: true,
     refetchInterval: REFETCH_INTERVAL,
   })
+}
+
+export const useTickingListOptions = (data?: TickingItem[]) => {
+  const options = data?.map((item) => ({ value: item.id, label: item.makeId ?? "no label" })) ?? []
+
+  return options
 }

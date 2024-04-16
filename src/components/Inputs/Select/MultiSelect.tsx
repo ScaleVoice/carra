@@ -5,9 +5,9 @@ import { Combobox } from "@headlessui/react"
 import { cva } from "class-variance-authority"
 import { ForwardedRef, HTMLProps, ReactElement, ReactNode, Ref, forwardRef, useRef } from "react"
 import { twMerge } from "tailwind-merge"
+import { Option } from "../types"
 import { BaseSelectOptions } from "./BaseSelectOptions"
 import { StateButton } from "./StateButton"
-import { Option } from "./types"
 import { SelectVariants, selectSideItemVariants, selectSizeVariants } from "./variantClassNames"
 
 export type MultiSelectProps<O extends Option> = Omit<
@@ -158,7 +158,11 @@ function Select<O extends Option>(
                   name={name}
                   ref={ref}
                   onChange={handleInputChange}
-                  className={twMerge("peer w-full flex-grow appearance-none outline-none", inputStateVariants, inputClassName)}
+                  className={twMerge(
+                    "peer w-full flex-grow appearance-none outline-none",
+                    inputStateVariants,
+                    inputClassName,
+                  )}
                   placeholder={placeholder}
                 />
               )}

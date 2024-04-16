@@ -1,4 +1,4 @@
-import { TickingItem } from "@/sections/tickingList/table/TickingListTable.utils"
+import { TickingItem } from "@/api/useSearch"
 
 const seller = {
   id: "seller_id",
@@ -66,8 +66,20 @@ const mockTickingAdItem: TickingItem = {
   state,
 }
 
+const mockTickingAdItem2 = {
+  ...mockTickingAdItem,
+  id: "123e4567-e89b-12d3-a456-426614174001",
+  makeId: "make124",
+}
+
+const mockTickingAdItem3 = {
+  ...mockTickingAdItem,
+  id: "123e4567-e89b-12d3-a456-426614174002",
+  makeId: "make125",
+}
+
 export const mockTickingAdSearchResponse = {
-  content: [mockTickingAdItem, mockTickingAdItem, mockTickingAdItem],
+  content: [mockTickingAdItem, mockTickingAdItem2, mockTickingAdItem3],
   totalPages: 3,
   totalElements: 3,
 }

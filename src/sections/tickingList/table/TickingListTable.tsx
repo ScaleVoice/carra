@@ -1,3 +1,4 @@
+import { TickingItem } from "@/api/useSearch"
 import { SearchInput } from "@/components/Inputs/SearchInput"
 import Table from "@/components/Table"
 import { NoResults } from "@/components/Table/NoResults"
@@ -10,7 +11,6 @@ import { useTranslation } from "react-i18next"
 import { ActiveFilters } from "../filters/ActiveFilters"
 import useTickingListTable from "../hooks/useTickingListTable"
 import { TickingListModal } from "../modal/TickingListModal"
-import { TickingItem } from "./TickingListTable.utils"
 
 export const TickingListTable = () => {
   const { t } = useTranslation(["tickingList", "common"])

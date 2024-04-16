@@ -27,6 +27,7 @@ export const DateFilter: FC<Props> = () => {
             value={activeFilters.downloadedAtFrom ?? null}
             onChange={handleFromChange}
             placeholder={t("from")}
+            popperPlacement="right"
           />
         </div>
 
@@ -35,6 +36,7 @@ export const DateFilter: FC<Props> = () => {
           value={activeFilters.downloadedAtTo ?? null}
           onChange={handleToChange}
           placeholder={t("to")}
+          popperPlacement="right"
         />
       </div>
     </div>

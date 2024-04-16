@@ -1,3 +1,4 @@
+import appointments from "src/locales/en/appointments.json"
 import common from "src/locales/en/common.json"
 import nav from "src/locales/en/nav.json"
 import tickingList from "src/locales/en/tickingList.json"
@@ -8,6 +9,7 @@ export const resources = {
   nav,
   validations,
   tickingList,
+  appointments,
 } as const
 
-export const namespaces = ["common", "nav", "validations", "tickingList"] as const
+export const namespaces = ["common", "nav", "validations", "tickingList", "appointments"] as const

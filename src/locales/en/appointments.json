@@ -1,0 +1,20 @@
+{
+  "calendar_buying": "Buying",
+  "calendar_delivery": "Delivery",
+  "calendar_reclamation": "Reclamation",
+  "calendar_view_day": "Today",
+  "calendar_view_week": "Week",
+  "calendar_view_month": "Month",
+  "calendar_view_agenda": "Agenda",
+
+  "events_form_title_label": "Title",
+  "events_form_title_required": "Title is required",
+  "events_form_start": "From",
+  "events_form_end": "To",
+  "events_form_car_placeholder": "Select car",
+  "events_form_branch_placeholder": "Select branch",
+  "events_form_employee_placeholder": "Select employee",
+  "events_form_vin": "VIN",
+  "events_form_stock_id": "Stock ID",
+  "events_form_erp_id": "ERP ID"
+}

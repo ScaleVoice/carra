@@ -16,6 +16,8 @@ export const QUERY_KEYS = {
   history: (args?: Record<string, unknown>) => createQueryKey("historyListData", args),
   sellerHistoricalAds: (args?: Record<string, unknown>) => createQueryKey("historicalAds", args),
   sellerCurrentAds: (args?: Record<string, unknown>) => createQueryKey("currentAds", args),
+  branch: (args?: Record<string, unknown>) => createQueryKey("branch", args),
+  employees: (args?: Record<string, unknown>) => createQueryKey("employees", args),
 
   //lov
   lovBodiesSearch: (args?: Record<string, unknown>) => createQueryKey("bodiesSearch", args),

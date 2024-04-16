@@ -12,6 +12,9 @@ import { HeaderProfile } from "./profile/HeaderProfile"
 export function Header() {
   const { t } = useTranslation()
 
+  const handleBranchChange = () => {}
+  const value = null
+
   return (
     <div className={twMerge("flex items-center justify-between border-b border-gray-50 px-6 py-4")}>
       <div className="flex flex-1 items-center gap-10">
@@ -19,14 +22,14 @@ export function Header() {
           <Logo />
         </Link>
 
-        <SelectBranch />
+        <SelectBranch name="branch" onChange={handleBranchChange} value={value} />
       </div>
 
       <div className="flex justify-center gap-4">
         <HeaderLink href={LINKS.home} label={t("header_home_link")} Icon={<Icon name="IconCallCustomer" />} />
 
         <HeaderLink
-          href={LINKS.calendar}
+          href={LINKS.appointments}
           label={t("header_appointments_link")}
           Icon={<Icon name="IconAppointments" />}
         />

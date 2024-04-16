@@ -2,7 +2,7 @@ import { FC } from "react"
 import { twMerge } from "tailwind-merge"
 import { GRAY } from "tailwind.config"
 import { Icon } from "../Icons"
-import { Input, InputProps } from "./Input"
+import { Input, InputProps } from "./Input/Input"
 
 export const SearchInput: FC<InputProps> = ({ containerClassName, className, ...props }) => {
   return (

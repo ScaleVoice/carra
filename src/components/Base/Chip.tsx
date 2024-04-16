@@ -2,14 +2,14 @@ import { FC, MouseEvent, PropsWithChildren } from "react"
 import { twMerge } from "tailwind-merge"
 
 interface ChipProps extends PropsWithChildren {
-  onRemove: () => void
+  onRemove?: () => void
   className?: string
 }
 
 export const Chip: FC<ChipProps> = ({ children, onRemove, className = "" }) => {
   const handleRemove = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation()
-    onRemove()
+    onRemove?.()
   }
 
   return (

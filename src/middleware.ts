@@ -6,6 +6,8 @@ import { NextResponse } from "next/server"
 const SIGN_UP_PATH = "/sign-up"
 const SIGN_IN_PATH = "/sign-in"
 
+export const runtime = "edge" // 'nodejs' (default) | 'edge'
+
 export default authMiddleware({
   publicRoutes: [SIGN_UP_PATH, SIGN_IN_PATH],
   apiRoutes: ["/api(.)*"],

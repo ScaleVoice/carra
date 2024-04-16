@@ -9,7 +9,7 @@ interface StateButtonProps {
   isLoading?: boolean
   disabled?: boolean
   disableClear?: boolean
-  value?: string | string[] | null
+  value?: string | string[] | null | number
   onClick: () => void
   onKeyDown: (e: React.KeyboardEvent<HTMLButtonElement>) => void
   LoadingIcon?: React.ReactNode
@@ -26,8 +26,8 @@ export const StateButton: FC<StateButtonProps> = ({
   LoadingIcon,
   value,
   disableClear,
-  ClearIcon = <Icon name="IconCross" />,
-  DefaultIcon = <Icon name="ArrowDown" />,
+  ClearIcon = <Icon name="IconCross" size="1rem" className="text-gray" />,
+  DefaultIcon = <Icon name="IconChevronDown" size="1rem" className="text-gray" />,
 }) => {
   return (
     <Combobox.Button
@@ -37,7 +37,7 @@ export const StateButton: FC<StateButtonProps> = ({
       onClick={onClick}
       onKeyDown={onKeyDown}
     >
-      <RenderIcon
+      <StateIcon
         value={value}
         disabled={disabled}
         disableClear={disableClear}
@@ -53,14 +53,22 @@ export const StateButton: FC<StateButtonProps> = ({
 interface RenderIconProps {
   value: StateButtonProps["value"]
   disabled: StateButtonProps["disabled"]
-  disableClear: StateButtonProps["disableClear"]
+  disableClear?: StateButtonProps["disableClear"]
   loading: StateButtonProps["isLoading"]
   ClearIcon: StateButtonProps["ClearIcon"]
   DefaultIcon: StateButtonProps["DefaultIcon"]
-  LoadingIcon: StateButtonProps["LoadingIcon"]
+  LoadingIcon?: StateButtonProps["LoadingIcon"]
 }
 
-function RenderIcon({ value, disabled, disableClear, loading, ClearIcon, DefaultIcon, LoadingIcon }: RenderIconProps) {
+export function StateIcon({
+  value,
+  disabled,
+  disableClear,
+  loading,
+  ClearIcon,
+  DefaultIcon,
+  LoadingIcon,
+}: RenderIconProps) {
   if (disabled) {
     return null
   } else if (loading) {

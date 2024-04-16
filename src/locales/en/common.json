@@ -19,6 +19,7 @@
   "pricing_app_button": "Open Pricing App",
 
   "single_select_empty_label": "Choose one",
+  "today": "Today",
   "percentage": "{{ n }}%",
   "percentage_per_anum": "{{ n }}% p.a.",
   "km_format": "{{ km, number }} km",
@@ -72,6 +73,8 @@
   "datepicker_back": "Back",
   "datepicker_confirm": "Confirm",
 
+  "filter_by_employee": "Filter by employee",
+  "create_new": "Create new",
   "divider_or": "or",
   "country": "Country",
   "country_de": "Germany",

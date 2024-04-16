@@ -2,7 +2,7 @@ import { Icon } from "@/components/Icons"
 import { Combobox } from "@headlessui/react"
 import { ReactNode } from "react"
 import { twMerge } from "tailwind-merge"
-import { Option } from "./types"
+import { Option } from "../types"
 
 interface BaseSelectOptionsProps<O extends Option> {
   name?: string
@@ -36,11 +36,11 @@ export function BaseSelectOptions<O extends Option>({
       <Combobox.Options
         static
         className={twMerge(
-          "transition-height absolute z-10 w-full overflow-auto overscroll-contain rounded-b-lg border border-gray-200 bg-white",
-          open ? "max-h-60 rounded-t-none" : "max-h-0 border-0",
+          "absolute z-10 w-full overflow-auto overscroll-contain rounded-b-lg border border-gray-200 bg-white",
+          open ? "max-h-60 rounded-t-none border-t-0" : "max-h-0 border-0",
           optionsClassName,
         )}
-        style={{ transitionDuration: `${transitionDuration * 2}ms` }}
+        // style={{ transitionDuration: `${transitionDuration * 2}ms` }}
         onTransitionEnd={onTransitionEnd}
       >
         {options?.map((option, i) => (
@@ -49,10 +49,10 @@ export function BaseSelectOptions<O extends Option>({
             key={`${name}-${option.label}-${i}`}
             value={option.value}
             className={twMerge(
-              "flex items-center px-3 transition-transform duration-75 ease-in-out focus:scale-[99%] focus:rounded-lg ui-active:bg-primary-100",
+              "flex items-center border-gray-50 px-3 transition-transform duration-75 ease-in-out focus:scale-[99%] focus:rounded-lg ui-active:bg-primary-50",
               option.value ? "border-b p-3" : "pb-0 pt-3",
               i === options.length - 1 ? "border-none" : "",
-              isHighlighted(option, selectedOptions) && "ui-not-active:bg-primary-50",
+              isHighlighted(option, selectedOptions) && "ui-not-active:bg-primary-25",
               className,
               optionClassName,
             )}
@@ -81,7 +81,7 @@ function isHighlighted(option: Option, selectedOptions?: Option[]) {
 
 function GroupLabel({ label }: { label: string }) {
   return (
-    <div className="text-gray-7 flex items-center text-sm">
+    <div className="text-gray flex items-center text-sm">
       <span>{label}</span>
       <span className="flex-grow" />
     </div>

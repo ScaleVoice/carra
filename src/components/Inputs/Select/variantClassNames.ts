@@ -16,7 +16,7 @@ export const selectSizeVariants = cva("", {
   },
 })
 
-export const selectSideItemVariants = cva("flex items-center border-0 justify-center text-gray-300", {
+export const selectSideItemVariants = cva("flex items-center border-0 justify-center text-gray-400", {
   variants: {
     size: {
       large: ["text-lg", "1.25rem"],

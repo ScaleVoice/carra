@@ -10,7 +10,7 @@ type Props = ButtonProps & {
 const PaginationButton = ({ icon, ref, ...props }: Props) => {
   const { t } = useTranslation()
   return (
-    <Button {...props} variant="outlined" size="small" className="gap-1">
+    <Button {...props} variant="outlined" size="small" className="gap-1 select-none">
       {icon == "ArrowLeft" && <Icon name={icon} size="1rem" />}
 
       <Text size="sm" weight="bold">

@@ -6,6 +6,10 @@
   @apply border-primary-100 !important;
 }
 
+.react-datepicker__triangle {
+  @apply text-primary-100;
+}
+
 .react-datepicker .react-datepicker__header {
   @apply bg-primary-25;
   @apply border-none;

@@ -1,4 +1,4 @@
-import { Input } from "@/components/Inputs/Input"
+import { Input } from "@/components/Inputs/Input/Input"
 import { ChangeEvent, FC } from "react"
 import { useTranslation } from "react-i18next"
 import { useTickingListFilters } from "./useTickingListFilters"
@@ -9,7 +9,7 @@ export const YearFilter: FC<Props> = () => {
   const { t } = useTranslation()
   const { setFilter, activeFilters } = useTickingListFilters()
 
-  console.log('activeFilters', activeFilters)
+  console.log("activeFilters", activeFilters)
 
   const handleFromChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(e.target.value, 10)

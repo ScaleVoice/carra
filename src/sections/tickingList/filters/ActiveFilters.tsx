@@ -3,11 +3,13 @@ import { Button } from "@/components/Buttons/Button"
 import { Icon } from "@/components/Icons"
 import { TickingFilters } from "@/sections/filtering/reducer/Filters.utils"
 import { FC } from "react"
+import { useTranslation } from "react-i18next"
 import { getActiveFilterList, useTickingListFilters } from "./useTickingListFilters"
 
 type Props = {}
 
 export const ActiveFilters: FC<Props> = () => {
+  const { t } = useTranslation("tickingList")
   const { activeFilters, setFilter, clear } = useTickingListFilters()
   const filters = getActiveFilterList(activeFilters)
 
@@ -30,8 +32,8 @@ export const ActiveFilters: FC<Props> = () => {
         ))}
       </div>
 
-      <Button variant="outlined" className="self-baseline rounded-full" onClick={clear}>
-        Clear All
+      <Button variant="outlined" className="self-baseline rounded-full whitespace-nowrap" onClick={clear}>
+        {t("clear_all")}
         <Icon name="IconTrash" />
       </Button>
     </div>

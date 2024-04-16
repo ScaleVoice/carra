@@ -1,3 +1,4 @@
+import { useTickingListData } from "@/api/useSearch"
 import TableHeaderType from "@/components/Table/TableHeader/TableHeaderType"
 import usePagination from "@/components/Table/TablePagination/usePagination"
 import useSearch from "@/hooks/useSearch"
@@ -12,7 +13,6 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table"
-import { mockTickingAdSearchResponse } from "mocks/ticking"
 import { useEffect, useState } from "react"
 import { useTickingListTableColumns } from "./useTickingListColumns"
 
@@ -26,6 +26,8 @@ const useTickingListTable = () => {
   const { currentPage, handleNextButtonOnClick, handlePaginationNumberOnClick, handlePrevButtonOnClick } =
     usePagination({ totalPages })
 
+  const { data, isLoading } = useTickingListData({})
+
   // const { data: searchData, refetch: refetchSearchData } = useSearchUser({
   //   page: currentPage - 1,
   //   searchQuery: debouncedSearchValue,
@@ -36,8 +38,6 @@ const useTickingListTable = () => {
   // }, [debouncedSearchValue, refetchSearchData])
 
   // const { data, isLoading } = useGetCustomers({ page: currentPage - 1 })
-  const data = mockTickingAdSearchResponse
-  const isLoading = false
 
   // useEffect(() => {
   //   if (debouncedSearchValue && searchData) {

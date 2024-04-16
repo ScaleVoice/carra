@@ -1,60 +1,211 @@
-import { Icon } from "@/components/Icons"
-import { Listbox } from "@headlessui/react"
-import { FC } from "react"
+import { ComponentVariantState, ComponentVariantType, getComponentStateVariants } from "@/css/variants/stateVariants"
+import { Combobox } from "@headlessui/react"
+import { ForwardedRef, HTMLProps, ReactNode, forwardRef, useCallback, useMemo } from "react"
 import { twMerge } from "tailwind-merge"
-import { Option } from "./types"
+import { Option } from "../types"
+import { BaseSelectOptions } from "./BaseSelectOptions"
+import { StateButton } from "./StateButton"
+import { SelectVariants, selectSideItemVariants, selectSizeVariants } from "./variantClassNames"
 
-type Props = {
-  name?: string
-  value: Option | null
-  onChange: (value: Option) => void
-  options: Option[]
-  placeholder: string
-}
+export type SelectProps = Omit<HTMLProps<HTMLInputElement>, "value" | "onChange" | "ref" | "size"> &
+  SelectVariants & {
+    isLoading?: boolean
+    disabled?: boolean
+    disableClear?: boolean
+    options: Option[]
+    selectedOptions?: Option[]
+    value: string | null | number
+    name: string
+    inputClassName?: string
+    containerClassName?: string
+    optionsClassName?: string
+    optionClassName?: string
+    placeholder?: string
+    error?: boolean
+    onChange: (value: string) => void
+    setQuery?: (query: string) => void
+    clear: () => void
+    transitionDuration?: number
+    LoadingIcon?: ReactNode
+    ClearIcon?: ReactNode
+    DefaultIcon?: ReactNode
+    renderOption?: (option: Option) => ReactNode
+    renderLeft?: (option?: Option, className?: string, error?: boolean) => ReactNode
+  }
 
-export const Select: FC<Props> = ({ name, value, onChange, options, placeholder }) => {
-  return (
-    <Listbox value={value} onChange={onChange} name={name}>
-      {({ open }) => (
-        <div className="flex flex-col">
-          <Listbox.Button
-            className={twMerge(
-              "flex items-center gap-1 rounded-md border border-gray-50 px-4 py-2.5 font-bold text-gray-400",
-              open && "rounded-b-none",
-              value && "text-primary",
-            )}
-          >
-            {value ? value.label : placeholder}
+export const Select = forwardRef(
+  (
+    {
+      isLoading,
+      disabled,
+      options,
+      selectedOptions,
+      disableClear,
+      value,
+      name,
+      placeholder,
+      inputClassName,
+      containerClassName,
+      optionsClassName,
+      optionClassName,
+      error,
+      onChange,
+      setQuery,
+      clear,
+      size,
+      transitionDuration = 150,
+      LoadingIcon,
+      ClearIcon,
+      DefaultIcon,
+      renderOption,
+      renderLeft,
+    }: SelectProps,
+    ref: ForwardedRef<HTMLInputElement>,
+  ) => {
+    const { wrapperStateVariants, inputStateVariants } = getComponentStateVariants(
+      ComponentVariantType.SELECT,
+      error ? ComponentVariantState.ERROR : ComponentVariantState.DEFAULT,
+    )
+    const sizeVariants = selectSizeVariants({ size })
+    const sideItemVariantsLeft = selectSideItemVariants({
+      size,
+      orientation: "left",
+    })
+    const sideItemVariantsRight = selectSideItemVariants({
+      size,
+      orientation: "right",
+    })
 
-            <Icon name="IconChevronDown" className="ml-2 h-4 w-4" />
-          </Listbox.Button>
+    const selectedOption = useMemo(() => options?.find((o) => o.value === value), [options, value])
 
-          <div className="relative z-10">
-            <Listbox.Options
+    const onClick = useCallback(() => {
+      if (!value || isLoading || disableClear) {
+        return
+      }
+      setTimeout(() => {
+        clear()
+      }, transitionDuration)
+    }, [value, isLoading, disableClear, transitionDuration, clear])
+
+    const onKeyDown = useCallback(
+      (e: React.KeyboardEvent<HTMLButtonElement>) => {
+        if (!value || isLoading || disableClear) {
+          return false
+        }
+        if (e.key === "Enter" || e.key === "Space") {
+          setTimeout(() => {
+            clear()
+          }, transitionDuration)
+        }
+
+        return true
+      },
+      [value, isLoading, disableClear, transitionDuration, clear],
+    )
+
+    const handleInputChange = useCallback(
+      (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = e.target
+        setQuery?.(value)
+
+        if (!value) {
+          onChange(value)
+        }
+      },
+      [onChange, setQuery],
+    )
+
+    const onTransitionEnd = useCallback(() => {
+      // user didn't select any option, clearing the query
+      setTimeout(() => {
+        setQuery?.("")
+      }, transitionDuration)
+    }, [setQuery, transitionDuration, value])
+
+    return (
+      <Combobox nullable value={value || null} onChange={onChange}>
+        {({ open }) => (
+          <div className="group">
+            <Combobox.Button
+              as="div"
               className={twMerge(
-                "absolute top-0 w-full rounded-md border border-gray-50 bg-white",
-                open && "rounded-t-none border-t-0",
+                "flex w-full items-center",
+                sizeVariants,
+                wrapperStateVariants,
+                open ? "rounded-b-none" : "rounded-b-lg",
+                disabled && "pointer-events-none opacity-40",
+                containerClassName,
               )}
             >
-              {options.map((option) => (
-                <Listbox.Option key={option.value} value={option} disabled={option.disabled}>
-                  {({ active, selected }) => (
-                    <li
-                      className={twMerge(
-                        "cursor-pointer border-b border-gray-50 px-4 py-2.5",
-                        active && "bg-primary-25 text-primary",
-                        selected && "bg-primary-50  text-primary",
-                      )}
-                    >
-                      {option.label}
-                    </li>
-                  )}
-                </Listbox.Option>
-              ))}
-            </Listbox.Options>
+              {renderLeft ? (
+                <>{renderLeft(selectedOption, sideItemVariantsLeft, error)}</>
+              ) : (
+                <DefaultSelectedOption selectedOption={selectedOption} className={sideItemVariantsLeft} />
+              )}
+
+              <Combobox.Input
+                name={name}
+                ref={ref}
+                onChange={handleInputChange}
+                className={twMerge("peer flex-grow appearance-none outline-none", inputStateVariants, inputClassName)}
+                placeholder={placeholder}
+                displayValue={(value: string) => {
+                  return options?.find((o) => String(o.value) === value)?.label || ""
+                }}
+              />
+
+              <StateButton
+                className={twMerge(
+                  "hidden cursor-pointer",
+                  sideItemVariantsRight,
+                  !disabled && "flex items-center justify-center",
+                )}
+                value={value}
+                disabled={disabled}
+                disableClear={disableClear}
+                isLoading={isLoading}
+                onClick={onClick}
+                onKeyDown={onKeyDown}
+                ClearIcon={ClearIcon}
+                DefaultIcon={DefaultIcon}
+                LoadingIcon={LoadingIcon}
+              />
+            </Combobox.Button>
+
+            <BaseSelectOptions
+              name={name}
+              open={open}
+              options={options}
+              className={sizeVariants}
+              leftClassName={sideItemVariantsLeft}
+              selectedOptions={selectedOptions}
+              transitionDuration={transitionDuration}
+              renderOption={renderOption}
+              onTransitionEnd={onTransitionEnd}
+              optionsClassName={optionsClassName}
+              optionClassName={optionClassName}
+            />
           </div>
-        </div>
-      )}
-    </Listbox>
-  )
+        )}
+      </Combobox>
+    )
+  },
+)
+
+Select.displayName = "Select"
+
+function DefaultSelectedOption({ selectedOption, className }: { selectedOption?: Option; className?: string }) {
+  if (!selectedOption) {
+    return null
+  }
+
+  if (selectedOption.icon) {
+    return (
+      <div className={className}>
+        <i className={twMerge(selectedOption.icon)} />
+      </div>
+    )
+  }
+
+  return null
 }

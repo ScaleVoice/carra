@@ -1,4 +1,6 @@
 @import "./datepicker";
+@import "react-big-calendar/lib/css/react-big-calendar.css";
+@import "./calendar";
 
 @tailwind base;
 @tailwind components;
@@ -14,6 +16,7 @@
   body,
   html {
     margin: 0;
+    overflow: hidden;
   }
 
   /* Chrome, Safari, Edge, Opera */
@@ -27,6 +30,39 @@
   input[type="number"] {
     -moz-appearance: textfield;
   }
+
+  /* .buying {
+    @apply bg-primary !important;
+    @apply border-0 !important; 
+
+    &:focus {
+      @apply outline-none !important;
+      @apply ring-2 !important;
+      @apply ring-primary-600 !important;
+    }
+  }
+
+  .delivery {
+    @apply bg-success !important;
+    @apply border-0 !important; 
+
+    &:focus {
+      @apply outline-none !important;
+      @apply ring-2 !important;
+      @apply ring-success-600 !important;
+    }
+  }
+
+  .reclamation {
+    @apply bg-warning !important;
+    @apply border-0 !important; 
+
+    &:focus {
+      @apply outline-none !important;
+      @apply ring-2 !important;
+      @apply ring-warning-600 !important;
+    }
+  } */
 
   @keyframes slide-in {
     0% {

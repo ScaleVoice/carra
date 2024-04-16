@@ -82,9 +82,27 @@ export const GRAY = {
   800: "#000000",
 }
 
+// function getSafelistForCalendar() {
+//   // Calendar uses some classes that need to be safelisted
+//   // otherwise tailwind won't include them in build and they won't show in UI
+
+//   const result = eventTypeOptions.reduce((acc, category) => {
+//     acc.push(getEventBackgroundClasses(category))
+//     acc.push(getEventTextClasses(category))
+//     acc.push(getEventFocusClasses(category))
+
+//     return acc
+//   }, [] as string[])
+
+//   console.log("result", result)
+
+//   return result
+// }
+
 const tailwindConfig = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   darkMode: "class",
+  // safelist: getSafelistForCalendar(),
   theme: {
     extend: {
       gridTemplateColumns: {
