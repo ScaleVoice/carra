@@ -1,4 +1,4 @@
-import { format, getDay, parse, setDate, startOfWeek } from "date-fns"
+import { format, getDay, parse, startOfWeek } from "date-fns"
 import enGB from "date-fns/locale/en-GB"
 import { CalendarProps, Calendar as RBCalendar, dateFnsLocalizer } from "react-big-calendar"
 
@@ -30,14 +30,7 @@ interface CalendarOuterProps extends CalendarProps<CustomRBEvent> {
   // renderContent?: boolean
 }
 
-export function Calendar({
-  localizer,
-  openingDaysWithHours,
-  slots,
-  defaultView = "day",
-  className,
-  ...props
-}: CalendarOuterProps) {
+export function Calendar({ localizer, openingDaysWithHours, slots, className, ...props }: CalendarOuterProps) {
   const minAndMaxOpeningHours = getMinAndMaxOpeningHours(openingDaysWithHours)
   const { events, selectedEvent, setSelectedEvent, view, setView, date, setDate } = useCalendarContext()
 

@@ -14,6 +14,7 @@ import { TickingListModal } from "../modal/TickingListModal"
 
 export const TickingListTable = () => {
   const { t } = useTranslation(["tickingList", "common"])
+  const [selectedItem, setSelectedItem] = useState<TickingItem | null>(null)
 
   const {
     table,
@@ -28,9 +29,6 @@ export const TickingListTable = () => {
     totalCount,
     totalPages,
   } = useTickingListTable()
-
-  // const [modal, openModal] = useCarDetailModal()
-  const [selectedItem, setSelectedItem] = useState<TickingItem | null>(null)
 
   const onRowClick = useCallback((item: TickingItem) => {
     setSelectedItem(item)
@@ -54,7 +52,7 @@ export const TickingListTable = () => {
       <Table
         isLoading={isLoading}
         headerComponent={
-          <TableHeader titleComponent={<TableHeaderTitle itemsCount={totalCount} title={"Filtered ads"} />} />
+          <TableHeader titleComponent={<TableHeaderTitle itemsCount={totalCount} title={t("common:table_title")} />} />
         }
         contentComponent={
           <>

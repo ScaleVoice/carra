@@ -28,25 +28,6 @@ const useTickingListTable = () => {
 
   const { data, isLoading } = useTickingListData({})
 
-  // const { data: searchData, refetch: refetchSearchData } = useSearchUser({
-  //   page: currentPage - 1,
-  //   searchQuery: debouncedSearchValue,
-  // })
-
-  // useEffect(() => {
-  //   refetchSearchData()
-  // }, [debouncedSearchValue, refetchSearchData])
-
-  // const { data, isLoading } = useGetCustomers({ page: currentPage - 1 })
-
-  // useEffect(() => {
-  //   if (debouncedSearchValue && searchData) {
-  //     setHeaderType("search")
-  //     setTotalPages(searchData?.totalPages)
-  //     setTotalCount(searchData?.totalElements)
-  //   }
-  // }, [debouncedSearchValue, searchData])
-
   useEffect(() => {
     if (data && !debouncedSearchValue) {
       setHeaderType("default")

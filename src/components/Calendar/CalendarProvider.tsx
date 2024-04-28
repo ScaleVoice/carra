@@ -25,7 +25,7 @@ type CalendarOptions = {
 export const CalendarProvider: FC<PropsWithChildren> = ({ children }) => {
   const events = useEvents()
   const [options, setOptions] = useState<CalendarOptions>({
-    view: Views.DAY,
+    view: Views.WEEK,
     date: new Date(),
   })
   const setView = useCallback((view: CalendarOptions["view"]) => {

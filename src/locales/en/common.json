@@ -112,17 +112,14 @@
 
   "header_home_link": "Ticking list",
   "header_history_link": "History",
-  "header_calls_link": "Call seller",
   "header_appointments_link": "Appointments",
-  "header_auctions_link": "Trades",
   "header_search_placeholder": "Search by any keyword",
-  "header_redirect_modal_appointments_redirect": "Continue to Appointments app?",
-  "header_redirect_modal_auctions_redirect": "Continue to Auction app?",
 
   "table_results": "RESULTS: <0>{{ results }}</0>",
   "table_next_page": "Next page",
   "table_no_results_heading": " We didn’t find any exact matches.",
   "table_no_results_hint": "Try to adjust or reset filters.",
+  "table_title": "Filtered Ads",
 
   "filters": "Filters",
   "filters_apply": "Apply",

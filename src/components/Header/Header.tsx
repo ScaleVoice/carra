@@ -34,7 +34,7 @@ export function Header() {
           Icon={<Icon name="IconAppointments" />}
         />
 
-        <HeaderLink href={LINKS.history} label={t("header_auctions_link")} Icon={<Icon name="IconTrades" />} />
+        <HeaderLink href={LINKS.history} label={t("header_history_link")} Icon={<Icon name="IconTrades" />} />
       </div>
 
       <HeaderProfile className="flex flex-1 justify-end" />
